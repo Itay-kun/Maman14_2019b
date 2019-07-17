@@ -1,16 +1,7 @@
 #include "FileGeneralOperations.h"
 
-<<<<<<< HEAD
 int is_valid_file(char *file_name)
 {
-=======
-
-FILE* open_file(char *file_name){
-
-}
-
-FILE* get_file_from_filename(char *file_name){
->>>>>>> 0c2dda2be3a1261533860448e7724f1df9ac2dd8
 
 }
 
