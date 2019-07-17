@@ -6,16 +6,19 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 	char 		number 			= '\0';
 	File		*pf				= null;
 	
-	open_or_create_file(pf, psLocation);
+	if (open_or_create_file(pf, psLocation) == -1)
+	{
+		return -1;
+	}
 	
 	if (decimalAddressCounter < maxNumDecimalAddress)
 	{
-		putchar('0', fp);
+		putchar('0', pf);
 	}
 	
-	fprintf(fp, "%d", decimalAddressCounter);
+	fprintf(pf, "%d", decimalAddressCounter);
 	
-	putchar('\t', fp);
+	putchar('\t', pf);
 	
 	while (counter < numOfActiveBites)
 	{
@@ -28,7 +31,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 			
 			else
 			{
-				to_4_base(number, '1', fp);
+				to_4_base(number, '1', pf);
 				number = '\0';
 			}
 		}
@@ -42,7 +45,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 			
 			else
 			{
-				to_4_base(number, '0', fp);
+				to_4_base(number, '0', pf);
 				number = '\0';
 			}
 		}
@@ -52,9 +55,9 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 		*binaryCode<<= 2;
 	}
 	
-	putchar('\n', fp);
+	putchar('\n', pf);
 	
-	clean_output_files(fp);
+	clean_output_files(pf);
 	
 	return 0;
 }
