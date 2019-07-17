@@ -18,7 +18,7 @@ int check_if_file_exists(char *fullDirectory)
 	}
 }
 
-int add_extention_to_file (char *FilePath)
+int add_extension_to_file (char *FilePath)
 {
 	FilePath = strcat(FilePath, '.as');
 	
