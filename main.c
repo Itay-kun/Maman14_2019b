@@ -10,11 +10,14 @@ int main(char* argv[]){
 
     for(counter=0 ; counter<=argv.length() ; counter++)
     {
-        add_extention_to_file()
-        if (open_or_create_file(inputFilePointer, argv[counter]) != -1)
+        if (add_extention_to_file(argv[counter]) == 0
         {
-            start_extraction(argv[i]);
+            if (open_or_create_file(inputFilePointer, argv[counter]) == 0)
+            {
+                start_extraction(argv[counter]);
+            }
         }
+
     }
     return 0;
 }

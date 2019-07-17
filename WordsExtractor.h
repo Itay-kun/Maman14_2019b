@@ -1,8 +1,8 @@
-//
-// Created by avivk on 16/07/2019.
-//
+#include <stdio.c>
+#include <stdlib.c>
 
-#ifndef MAMAN14_2019B_WORDSEXTRACTOR_H
-#define MAMAN14_2019B_WORDSEXTRACTOR_H
+void start_extraction(char*);
 
-#endif //MAMAN14_2019B_WORDSEXTRACTOR_H
+int extract_by_whitespaces(char*);
+
+
