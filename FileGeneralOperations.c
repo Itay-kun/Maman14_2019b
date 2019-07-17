@@ -4,9 +4,6 @@
 
 #include "FileGeneralOperations.h"
 
-int is_valid_file(char *file_name){
-
-}
 
 FILE* open_file(char *file_name){
 

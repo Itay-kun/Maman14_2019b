@@ -6,19 +6,15 @@
 
 int main(char* argv[]){
     int counter=0;
+    FILE* inputFilePointer = NULL;
 
     for(counter=0 ; counter<=argv.length() ; counter++)
     {
-        if (is_valid_file(argv[counter]) == 1)
+        add_extention_to_file()
+        if (open_file(inputFilePointer, argv[counter]) != -1)
         {
-            if (open_file(argv[counter]) != NULL)
-            {
-                start_extraction(argv[i]);
-            }
-
+            start_extraction(argv[i]);
         }
     }
-
-
     return 0;
 }

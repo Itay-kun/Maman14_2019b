@@ -4,6 +4,8 @@
 
 #include "WordsExtractor.h"
 
-void start_extraction(char* ){
+void start_extraction(char* fileName){
+    /*TODO: scan the line with fgets till \n or 80 char, whateve comes first*/
 
+    while (fgets())
 }
