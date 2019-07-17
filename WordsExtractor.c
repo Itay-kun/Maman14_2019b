@@ -3,3 +3,7 @@
 //
 
 #include "WordsExtractor.h"
+
+void start_extraction(char* ){
+
+}
