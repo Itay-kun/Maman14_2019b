@@ -6,17 +6,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 	char 		number 			= '\0';
 	File		*pf				= null;
 	
-	if (check_if_file_exists(psLocation) == -1)
-	{
-		create_file(psLocation, 'ps.ob');
-	}
-	
-	fp = open_file(psLocation);
-		
-		if (fp == null)
-		{
-			return -1;
-		}
+	open_or_create_file(pf, psLocation);
 	
 	if (decimalAddressCounter < maxNumDecimalAddress)
 	{
@@ -64,9 +54,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 	
 	putchar('\n', fp);
 	
-	fclose(fp);
-	
-	free(fp);
+	clean_output_files(fp);
 	
 	return 0;
 }
