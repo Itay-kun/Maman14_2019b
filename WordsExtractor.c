@@ -5,9 +5,10 @@
 #include "WordsExtractor.h"
 
 void start_extraction(char* fileName){
-    char*
+    /*char* */
     /*TODO: scan the line with fgets till \n or 80 char, whatever comes first*/
 
+    /*
     while (fgets())
     {
         if (extract_by_whitespaces(line) == 0)
@@ -15,6 +16,7 @@ void start_extraction(char* fileName){
             fprintf(stdout,"The initial extraction was done successfully");
         }
     }
+     */
 }
-
-int extract_by_whitespaces
+/*
+int extract_by_whitespaces */

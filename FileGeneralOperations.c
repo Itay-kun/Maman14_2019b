@@ -2,7 +2,7 @@
 
 int is_valid_file(char *file_name)
 {
-
+	return 0;
 }
 
 int check_if_file_exists(char *fullDirectory)
@@ -20,24 +20,24 @@ int check_if_file_exists(char *fullDirectory)
 
 int add_extension_to_file (char *FilePath)
 {
-	FilePath = strcat(FilePath, '.as');
+	FilePath = strcat(FilePath, ".as");
 	
 	return 0;
 }
 
-int open_or_create_file (file *pf, char *FilePath)
+int open_or_create_file (FILE *pf, char *FilePath)
 {
 	if (check_if_file_exists(FilePath) == -1)
 	{
-		pf = fopen(FilePath, 'w+');
+		pf = fopen(FilePath, "w+");
 	}
 	
 	else
 	{
-		pf = fopen(FilePath, 'r+');
+		pf = fopen(FilePath, "r+");
 	}
 		
-	if (pf == null)
+	if (pf == NULL)
 	{
 		return -1;
 	}

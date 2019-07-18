@@ -1,24 +1,27 @@
 /* Do binary movements and send 00 or 01 or 10 or 11 to the "to_4_base" function. Reutrns 0 if all good. */
+#include "FromBitToSign.h"
+#include "main.h"
+
 
 int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAddressCounter) 
 {
 	int 		counter 		= 0;
 	char 		number 			= '\0';
-	File		*pf				= null;
+	FILE		*pf				= NULL;
 	
-	if (open_or_create_file(pf, psLocation) == -1)
+	if (open_or_create_file(pf, __FILENAME__) == -1)
 	{
 		return -1;
 	}
 	
 	if (decimalAddressCounter < maxNumDecimalAddress)
 	{
-		putchar('0', pf);
+		fputc('0', pf);
 	}
 	
 	fprintf(pf, "%d", decimalAddressCounter);
 	
-	putchar('\t', pf);
+	fputc('\t', pf);
 	
 	while (counter < numOfActiveBites)
 	{
@@ -55,7 +58,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 		*binaryCode<<= 2;
 	}
 	
-	putchar('\n', pf);
+	fputc('\n', pf);
 	
 	clean_output_files(pf);
 	
@@ -64,7 +67,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 
 /* check if the file exists, if yes puts * or # or % or !. If does not exists create the file and than put the correct sign. Reutrns 0 if all good.*/
 
-int 		to_4_base					(char firstBitBit, char secondBit, file *fp)
+int 		to_4_base					(char firstBit, char secondBit, FILE* fp)
 {
 	secondBit = secondBit * 2;
 	
@@ -72,25 +75,25 @@ int 		to_4_base					(char firstBitBit, char secondBit, file *fp)
 	{
 		case 0:
 				/* write * to the file*/
-				putchar('*', fp);
+				fputc('*', fp);
 				
 				break;
 			
 		case 1:
 				/* write # to the file*/
-				putchar('#', fp);
+				fputc('#', fp);
 				
 				break;
 		
 		case 2:
 				/* write % to the file*/
-				putchar('%', fp);
+				fputc('%', fp);
 				
 				break;
 				
 		case 3:
 				/* write ! to the file*/
-				putchar('!', fp);
+				fputc('!', fp);
 				
 				break; 
 		
@@ -101,14 +104,6 @@ int 		to_4_base					(char firstBitBit, char secondBit, file *fp)
 				
 				break;
 	}
-	
-	return 0;
-}
-
-int 			main					(void) 
-{
-	short aaa = 127;
-	from_binary_machine_code_to_fourth_base(&aaa);
 	
 	return 0;
 }
