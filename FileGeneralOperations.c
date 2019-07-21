@@ -7,7 +7,7 @@ int is_valid_file(char *file_name)
 
 int check_if_file_exists(char *fullDirectory)
 {
-	if( access( fname, F_OK ) != -1 )
+	if( access( fullDirectory, F_OK ) != -1 )
 	{
 		return 0;
 	}
