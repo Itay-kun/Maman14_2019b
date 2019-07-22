@@ -4,17 +4,17 @@
 
 #include "main.h"
 
-int main(char* argv[]){
+int main(int argc,char* argv[]){
     int counter=0;
     FILE* inputFilePointer = NULL;
 
-    for(counter=0 ; counter<=sizeof(argv) ; counter++)
+    for(counter=0 ; counter<=argc ; counter++)
     {
-        if (add_extention_to_file(argv[counter]) == 0)
+        if (add_extension_to_file(argv[counter]) == 0)
         {
             if (open_or_create_file(inputFilePointer, argv[counter]) == 0)
             {
-                start_extraction(argv[counter]);
+                start_extraction(inputFilePointer);
             }
         }
 

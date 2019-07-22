@@ -1,8 +1,12 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
 
-void start_extraction(char*);
+#define LINE_MAX_BUFFER 79
 
-int extract_by_whitespaces(char*);
+void start_extraction(FILE*);
+
+char* extract_by_whitespaces(char*);
 
 

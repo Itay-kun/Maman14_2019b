@@ -4,19 +4,27 @@
 
 #include "WordsExtractor.h"
 
-void start_extraction(char* fileName){
-    /*char* */
+
+void start_extraction(FILE* inputFilePointer){
+    char *lineWithoutNewline = "";
     /*TODO: scan the line with fgets till \n or 80 char, whatever comes first*/
 
-    /*
-    while (fgets())
+    fgets(lineWithoutNewline, LINE_MAX_BUFFER, inputFilePointer);
+    while (lineWithoutNewline != NULL)
     {
-        if (extract_by_whitespaces(line) == 0)
+        if (extract_by_whitespaces(lineWithoutNewline) != NULL)
         {
             fprintf(stdout,"The initial extraction was done successfully");
         }
     }
-     */
+
 }
-/*
-int extract_by_whitespaces */
+
+char* extract_by_whitespaces(char *lineWithoutNewline){
+    char* wordsToken = "";
+    char whitespaceDelimiters[]="\t\v\f\r";
+
+    wordsToken = strtok(lineWithoutNewline,whitespaceDelimiters);
+
+    return wordsToken;
+}
