@@ -1,7 +1,7 @@
-all: Maman14
+all: assembler
 
-Maman14: FromBitToSign.o FileGeneralOperations.o main.o WordsExtractor.o
-	gcc -ansi -Wall -pedantic -o Maman14 FromBitToSign.o 			FileGeneralOperations.o main.o WordsExtractor.o
+assembler: FromBitToSign.o FileGeneralOperations.o main.o WordsExtractor.o
+	gcc -ansi -Wall -pedantic -o assembler FromBitToSign.o 			FileGeneralOperations.o main.o WordsExtractor.o
 
 FromBitToSign.o: FromBitToSign.c FromBitToSign.h FileGeneralOperations.h
 	gcc -ansi -Wall -pedantic -c FromBitToSign.c
@@ -16,4 +16,4 @@ WordsExtractor.o: WordsExtractor.c WordsExtractor.h
 	gcc -ansi -Wall -pedantic -c WordsExtractor.c
 
 clean:
-	rm *.o *~Maman14
+	rm *.o assembler*

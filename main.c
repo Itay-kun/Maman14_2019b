@@ -1,6 +1,7 @@
 #include "main.h"
 
-int main(int argc,char* argv[]){
+int 		main		(int argc, char* argv[])
+{
     int counter=0;
     FILE* inputFilePointer = NULL;
 
@@ -13,10 +14,10 @@ int main(int argc,char* argv[]){
                 start_extraction(inputFilePointer);
             }
         }
-
-        int short aaa = 127;
-        int decimalAddressCounter = 0;
-        from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter);
+        
+        int short 		aaa 					= 127;
+        int 			decimalAddressCounter 	= 0;
+        printf("%d", from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter));
     }
     return 0;
 }
