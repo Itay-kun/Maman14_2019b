@@ -1,7 +1,3 @@
-//
-// Created by avivk on 16/07/2019.
-//
-
 #include "main.h"
 
 int main(int argc,char* argv[]){
@@ -18,7 +14,7 @@ int main(int argc,char* argv[]){
             }
         }
 
-        short aaa = 127;
+        int short aaa = 127;
         int decimalAddressCounter = 0;
         from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter);
     }

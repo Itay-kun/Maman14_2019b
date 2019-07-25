@@ -59,7 +59,7 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 	
 	fputc('\n', pf);
 	
-	clean_output_files(pf);
+	fclose(pf); /*TODO: write functions that deal properly with files cleanup (such as clean_output_files)*/
 	
 	return 0;
 }
@@ -98,7 +98,7 @@ int 		to_4_base					(char firstBit, char secondBit, FILE* fp)
 		
 		default:
 				/* write error*/
-				write_error("There is a problem with the translation to 4 base");			
+				fprintf(stderr,"There is a problem with the translation to 4 base"); /*TODO: write functions that deal properly with errors (such as write_error)*/
 				return -1;
 				
 				break;

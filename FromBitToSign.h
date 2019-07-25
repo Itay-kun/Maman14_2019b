@@ -6,3 +6,4 @@
 
 int 	from_binary_machine_code_to_fourth_base 	(short *, int);
 int 	to_4_base									(char, char, FILE*);
+
