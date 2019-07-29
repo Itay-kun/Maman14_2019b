@@ -7,7 +7,7 @@ int 		main		(int argc, char* argv[])
     int short 		aaa 					= 127;
     int 			decimalAddressCounter 	= 0;
 
-    /*for(counter=0 ; counter<=argc ; counter++)
+    for(counter=0 ; counter<=argc ; counter++)
     {
         if (add_extension_to_file(argv[counter]) == 0)
         {
@@ -15,7 +15,7 @@ int 		main		(int argc, char* argv[])
             {
                 start_extraction(inputFilePointer);
             }
-        }*/
+        }
         
         from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter);
     
