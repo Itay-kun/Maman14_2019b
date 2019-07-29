@@ -4,7 +4,8 @@
 
 #define 	max_Label 			31
 #define		max_operand			25
-#define __FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
+#define		char_to_asci		48
+#define 	__FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 /*TODO: Write it as a regular condition structure*/
 
   typedef enum

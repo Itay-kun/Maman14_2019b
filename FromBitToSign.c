@@ -1,25 +1,24 @@
 /* Do binary movements and send 00 or 01 or 10 or 11 to the "to_4_base" function. Reutrns 0 if all good. */
 #include "main.h"
 
-
-int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAddressCounter) 
+int 	from_binary_machine_code_to_fourth_base 	(int short *binaryCode, int decimalAddressCounter)
 {
-	int 		counter 		= 0;
-	char 		number 			= '\0';
-	FILE		*pf				= NULL;
+	int 	counter 						= 0;
+	char 	number 							= '\0';
+	FILE	*pf								= NULL;
 	
-	if (open_or_create_file(pf, __FILENAME__) == -1)
+	if (open_or_create_file(&pf, "ps.ob") == -1)
 	{
 		return -1;
 	}
 	
 	if (decimalAddressCounter < maxNumDecimalAddress)
-	{
-		fputc('0', pf);
+	{		
+		fputc('0', pf); /*puts 0 befor the IC number if it is less then 1000*/
 	}
 	
 	fprintf(pf, "%d", decimalAddressCounter);
-	
+
 	fputc('\t', pf);
 	
 	while (counter < numOfActiveBites)
@@ -33,7 +32,11 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 			
 			else
 			{
-				to_4_base(number, '1', pf);
+				if (to_4_base(number, '1', pf) != 0)
+				{
+					return -1;
+				}
+				
 				number = '\0';
 			}
 		}
@@ -47,14 +50,18 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 			
 			else
 			{
-				to_4_base(number, '0', pf);
+				if (to_4_base(number, '0', pf) != 0)
+				{
+					return -1;
+				}
+				
 				number = '\0';
 			}
 		}
 		
 		counter++;
 		
-		*binaryCode<<= 2;
+		*binaryCode>>= 1;
 	}
 	
 	fputc('\n', pf);
@@ -66,10 +73,11 @@ int 	from_binary_machine_code_to_fourth_base 	(short *binaryCode, int decimalAdd
 
 /* check if the file exists, if yes puts * or # or % or !. If does not exists create the file and than put the correct sign. Reutrns 0 if all good.*/
 
-int 		to_4_base					(char firstBit, char secondBit, FILE* fp)
+int			to_4_base					(char firstBit, char secondBit, FILE* fp)
 {
-	secondBit = secondBit * 2;
-	
+	secondBit 	= (secondBit - char_to_asci) * 2;
+	firstBit	= (firstBit - char_to_asci);
+		
 	switch(secondBit + firstBit)
 	{
 		case 0:
@@ -98,7 +106,7 @@ int 		to_4_base					(char firstBit, char secondBit, FILE* fp)
 		
 		default:
 				/* write error*/
-				fprintf(stderr,"There is a problem with the translation to 4 base"); /*TODO: write functions that deal properly with errors (such as write_error)*/
+				fprintf(stderr,"There is a problem with the translation to 4 base \n"); /*TODO: write functions that deal properly with errors (such as write_error)*/
 				return -1;
 				
 				break;

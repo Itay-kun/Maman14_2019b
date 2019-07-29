@@ -7,7 +7,7 @@ int is_valid_file(char *file_name)
 
 int check_if_file_exists(char *fullDirectory)
 {
-	if( access( fullDirectory, F_OK ) != -1 )
+	if( access (fullDirectory, F_OK ) != -1 )
 	{
 		return 0;
 	}
@@ -25,22 +25,22 @@ int add_extension_to_file (char *FilePath)
 	return 0;
 }
 
-int open_or_create_file (FILE *pf, char *FilePath)
+int open_or_create_file (FILE **pf, char *FilePath)
 {
 	if (check_if_file_exists(FilePath) == -1)
 	{
-		pf = fopen(FilePath, "w+");
+		*pf = fopen(FilePath, "w+");
 	}
 	
 	else
 	{
-		pf = fopen(FilePath, "r+");
+		*pf = fopen(FilePath, "r+");
 	}
 		
-	if (pf == NULL)
+	if (*pf == NULL)
 	{
 		return -1;
 	}
-	
+
 	return 0;
 }
