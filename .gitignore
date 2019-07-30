@@ -70,3 +70,4 @@ fabric.properties
 # out files
 *.o
 assembler*
+*.ob

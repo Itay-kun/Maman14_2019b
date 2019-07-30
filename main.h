@@ -44,6 +44,7 @@
 	  char			desoperand[max_operand];
 	  hash			srctype;
 	  hash			destype;
+	  /*Add a value of - is it dc? and the value of the dc*/
   } line;
   
   typedef struct
