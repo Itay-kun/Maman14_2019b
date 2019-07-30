@@ -1,4 +1,4 @@
-#include "main.h"
+#include "FromBitToSign.h"
 
 /*Do binary movements and send 00 or 01 or 10 or 11 to the "to_4_base" function. Reutrns 0 if all good else returns -1.*/
 

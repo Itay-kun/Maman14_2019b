@@ -20,4 +20,4 @@ CreateBMC.o: CreateBMC.c CreateBMC.h main.h
 	gcc -ansi -Wall -pedantic -c CreateBMC.c
 
 clean:
-	rm *.o assembler*
+	rm assembler*
