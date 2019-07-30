@@ -12,3 +12,49 @@ void start_extraction(FILE*);
 char* extract_by_whitespaces(char*);
 
 char* extract_by_colon(char*);
+
+  typedef enum
+  {
+	  mov,
+	  cmp,
+	  add,
+	  sub,
+	  not,
+	  clr,
+	  lea,
+	  inc,
+	  dec,
+	  jmp,
+	  bne,
+	  red,
+	  prn,
+	  jsr,
+	  rts,
+	  stop
+  } operation;
+  
+    typedef struct
+  {
+	  operation 	ope;
+	  char			binaryCode;
+	  hash			source;
+	  hash			destination;
+  } oper;
+  
+    typedef struct
+  {
+	  char 			label[max_Label];
+	  operation		ope;
+	  char			srcoperand[max_operand];
+	  char			desoperand[max_operand];
+	  hash			srctype;
+	  hash			destype;
+  } line;
+
+  typedef enum
+  {
+	  immediateAddress,
+	  directAddress,
+	  indexAddress,
+	  storageAddress
+  } hash;

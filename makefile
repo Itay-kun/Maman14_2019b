@@ -1,7 +1,8 @@
 all: assembler
 
-assembler: FromBitToSign.o FileGeneralOperations.o main.o WordsExtractor.o
-	gcc -ansi -Wall -pedantic -o assembler FromBitToSign.o 			FileGeneralOperations.o main.o WordsExtractor.o
+assembler: FromBitToSign.o FileGeneralOperations.o main.o WordsExtractor.o CreateBMC.o
+	gcc -ansi -Wall -pedantic -o assembler FromBitToSign.o FileGeneralOperations.o main.o WordsExtractor.o CreateBMC.o
+	rm *.o
 
 main.o: main.c main.h
 	gcc -ansi -Wall -pedantic -c main.c
@@ -14,6 +15,9 @@ FileGeneralOperations.o: FileGeneralOperations.c FileGeneralOperations.h
 
 WordsExtractor.o: WordsExtractor.c WordsExtractor.h
 	gcc -ansi -Wall -pedantic -c WordsExtractor.c
+
+CreateBMC.o: CreateBMC.c CreateBMC.h main.h
+	gcc -ansi -Wall -pedantic -c CreateBMC.c
 
 clean:
 	rm *.o assembler*

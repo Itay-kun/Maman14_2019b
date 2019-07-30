@@ -19,6 +19,5 @@ int 		main		(int argc, char* argv[])
         
         from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter);
     }
-    
     return 0;
 }
