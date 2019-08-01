@@ -1,14 +1,14 @@
-/* Icludes 		*/
+/* Includes 		*/
 
 #include 	<stdio.h>
 #include 	"FileGeneralOperations.h"
 
-/* Defines		*/
+/* Definitions		*/
 
 #define 	maxNumDecimalAddress 						1000
 #define		char_to_asci								48
 
-/* Protopyes 	*/
+/* Prototypes 	*/
 
 int	 		from_binary_machine_code_to_fourth_base 	(int short*, int);
 char 		to_4_base									(char, char);
