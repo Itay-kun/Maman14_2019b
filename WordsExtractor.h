@@ -13,13 +13,13 @@
 #define		max_operand						25
 #define 	MAX_WORDS_COUNT_IN_SENTENCE		5
 
-/* Prototypes 	*/
+/* Prototypes 		*/
 
 void 		start_extraction		(FILE*);
 void 		extract_by_whitespaces	(char*);
 char* 		extract_by_colon		(char*);
 
-/* Structs 	*/
+/* Structures 		*/
 
   typedef enum
   {

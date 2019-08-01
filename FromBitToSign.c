@@ -2,7 +2,7 @@
 
 /*Do binary movements and send 00 or 01 or 10 or 11 to the "to_4_base" function. Reutrns 0 if all good else returns -1.*/
 
-int 	from_binary_machine_code_to_fourth_base 	(int short *binaryCode, int decimalAddressCounter)
+int 	from_binary_machine_code_to_fourth_base 	(int short binaryCode, int decimalAddressCounter)
 {
 	int 	counter 						= 0;
 	char 	number 							= '\0';
@@ -26,7 +26,7 @@ int 	from_binary_machine_code_to_fourth_base 	(int short *binaryCode, int decima
 	
 	while (counter < (numOfActiveBites / 2))
 	{
-		if (*binaryCode % 2 == 1)
+		if (binaryCode % 2 == 1)
 		{
 
 			if (number == '\0')
@@ -71,7 +71,7 @@ int 	from_binary_machine_code_to_fourth_base 	(int short *binaryCode, int decima
 			}
 		}
 		
-		*binaryCode>>= 1;
+		binaryCode>>= 1;
 	}
 	
 	printSignToFile(bmcsign, pf);

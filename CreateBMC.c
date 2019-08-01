@@ -6,7 +6,7 @@ int			from_line_to_bmc			(line* nextLine, int decimalAdderess, labelTable* table
 	{
 		if (nextLine->desoperand != NULL && nextLine->srcoperand != NULL)
 		{
-			if (from_binary_machine_code_to_fourth_base(&from_normal_line(nextLine, table), decimalAdderess) == 0)
+			if (from_binary_machine_code_to_fourth_base(from_normal_line(nextLine, table), decimalAdderess) == 0)
 			{
 				return 0;
 			}
@@ -20,24 +20,6 @@ int			from_line_to_bmc			(line* nextLine, int decimalAdderess, labelTable* table
 		}
 	}
 	return 0;
-	/*int 	labelLine		= 0;
-	
-	if ( strcmp (nextLine->label, '.define' == 0)
-	{
-		return 0;
-	}
-	
-	labelLine = test_label(nextLine, table);
-	
-	if (labelLine == -1)
-	{
-		return -1;
-	}
-	
-	
-	
-	return 0;
-}*/
 }
 
 short int 	from_normal_line			(line* nextLine, labelTable* table)
@@ -50,7 +32,7 @@ short int 	from_normal_line			(line* nextLine, labelTable* table)
 	return create_operation_bmc(nextLine);
 }
 
-int			create_operation_bmc		(line *nextLine)
+short int	create_operation_bmc		(line *nextLine)
 {
 	int 		i				= numOfActiveBites - 5; /* Unsed bits */
 	int 		j				= 0;
@@ -123,7 +105,7 @@ int 		test_label					(line* nextLine, labelTable* table)
 	
 	while (i < (sizeof(table) - 1)) /*TODO check whatsapp from Aviv*/
 	{
-		if (strcmp (nextLine->label, table[i].label) == 0)
+		if (strcmp (nextLine->label, *table[i].label) == 0)
 		{
 				break;
 		}
@@ -143,7 +125,14 @@ int 		test_label					(line* nextLine, labelTable* table)
 
 int			to_decimal					(int power)
 {
-	return pow (2, power);
+	int			i, j;
+	
+	for ( j = 2, i = 1 ; i >= power ; i++)
+	{
+		j	*= 2;
+	}
+	
+	return j;
 }
 
 int			from_operand_to_bynary		(char* opr, hash oprtype)
