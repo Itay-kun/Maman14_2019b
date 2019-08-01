@@ -7,7 +7,9 @@ int 		main		(int argc, char* argv[])
     /*int short 		aaa 					= 127;
     int 			decimalAddressCounter 	= 0;*/
 
-    for(counter=0 ; counter<=argc ; counter++)
+    /*TODO: The counter is starting from 1 since in previous executions it added '.as' to the actual assembler file.
+     * In this case, the extension will be added only to the input file. */
+    for(counter=1 ; counter<=argc ; counter++)
     {
         if (add_extension_to_file(argv[counter]) == 0)
         {
@@ -19,5 +21,6 @@ int 		main		(int argc, char* argv[])
         
         /*from_binary_machine_code_to_fourth_base(&aaa, decimalAddressCounter);*/
     }
+
     return 0;
 }

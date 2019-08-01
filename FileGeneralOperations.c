@@ -18,11 +18,36 @@ int check_if_file_exists(char *fullDirectory)
 	}
 }
 
-int add_extension_to_file (char *FilePath)
+int add_extension_to_file (char *filePath)
 {
-	FilePath = strcat(FilePath, ".as");
-	
+	/*
+	char* filePathWithExtension;
+	char* mvCommand;
+	char* mvVariables;
+	mvVariables = "";
+	filePathWithExtension = (char*)malloc(MAX_FILE_LENGTH + FILE_EXTENSION_LENGTH);
+	mvCommand = (char*)malloc(MAX_FILE_LENGTH*2 + FILE_EXTENSION_LENGTH + 3);
+	strcpy(filePath,filePathWithExtension);
+	strcat(filePathWithExtension,".as");
+	strcat(mvVariables,filePath);
+	strcat(mvVariables," ");
+	strcat(mvVariables, filePathWithExtension);
+	sprintf(mvCommand, "mv %s",mvVariables);
+	free(filePathWithExtension);
+	if (system(mvCommand) == -1)
+	{
+		fprintf(stdout,"The rename operation ended with errors");
+		free(mvCommand);
+		return -1;
+	}
+	else
+	{
+		free(mvCommand);
+		return 0;
+	}
+	*/
 	return 0;
+
 }
 
 int open_or_create_file (FILE **pf, char *FilePath)
