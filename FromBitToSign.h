@@ -5,7 +5,6 @@
 
 /* Defines		*/
 
-#define 	numOfActiveBites 							14 /* should be int he main.h!!!!!!!!!!!!!!*/
 #define 	maxNumDecimalAddress 						1000
 #define		char_to_asci								48
 

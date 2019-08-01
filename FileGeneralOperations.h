@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <string.h>
 
+#define 	numOfActiveBites 							14
 #define 	__FILENAME__ (strrchr(__FILE__, '/') ? strrchr(__FILE__, '/') + 1 : __FILE__)
 
 int is_valid_file(char*);
