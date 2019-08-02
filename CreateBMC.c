@@ -1,22 +1,12 @@
 #include 	"CreateBMC.h"
 
 int			from_line_to_bmc			(line* nextLine, int decimalAdderess, labelTable* table)
-{
+{		
 	if (nextLine->label != NULL)
-	{
+	{		
 		if (nextLine->desoperand != NULL && nextLine->srcoperand != NULL)
-		{
-			if (from_binary_machine_code_to_fourth_base(from_normal_line(nextLine, table), decimalAdderess) == 0)
-			{
-				return 0;
-			}
-			
-			else
-			{
-				fprintf(stderr,"There is a problem in the line. \n"); /*TODO: write functions that deal properly with errors (such as write_error)*/
-				
-				return -1;
-			}
+		{	
+			from_binary_machine_code_to_fourth_base(from_normal_line(nextLine, table), decimalAdderess);
 		}
 	}
 	return 0;
@@ -37,13 +27,13 @@ short int	create_operation_bmc		(line *nextLine)
 	int 		i				= numOfActiveBites - 5; /* Unsed bits */
 	int 		j				= 0;
 	short int	counter			= 0;
-	char 		op[opcode] 		= "";
+	char		op[opcode]		= "";
 	char		opr[operand]	= "";
 	
 	from_operation_to_bynary (op, nextLine->ope);
 	
-	for ( j = (opcode - 1) ; j < 0 ; j--)
-	{
+	for ( j = (opcode - 1) ; j >= 0 ; j--)
+	{				
 		counter += ((int)(op[j] - char_to_asci) * to_decimal(i));
 		
 		i--;
@@ -51,8 +41,8 @@ short int	create_operation_bmc		(line *nextLine)
 	
 	from_operand_to_bynary (opr, nextLine->srctype);
 	
-	for ( j = (operand - 1) ; j < 0 ; j--)
-	{
+	for ( j = 0 ; j <= (operand - 1) ; j++)
+	{				
 		counter += ((int)(opr[j] - char_to_asci) * to_decimal(i));
 		
 		i--;
@@ -60,8 +50,8 @@ short int	create_operation_bmc		(line *nextLine)
 	
 	from_operand_to_bynary (opr, nextLine->destype);
 	
-	for ( j = (operand - 1) ; j < 0 ; j--)
-	{
+	for ( j = 0 ; j <= (operand - 1) ; j++)
+	{		
 		counter += ((int)(opr[j] - char_to_asci) * to_decimal(i));
 		
 		i--;
@@ -70,7 +60,7 @@ short int	create_operation_bmc		(line *nextLine)
 	return counter;
 }
 
-int			from_operation_to_bynary	(char* op, operation ope) /* change ope to pointer ?*/
+int			from_operation_to_bynary	(char op[], operation ope) /* change ope to pointer ?*/
 {
 	int			i, j;
 	
@@ -78,9 +68,9 @@ int			from_operation_to_bynary	(char* op, operation ope) /* change ope to pointe
 	j							= 8; /* TODO define ? */
 	
 	while ( i != 0)
-	{
+	{		
 		if (ope > j)
-		{
+		{		
 			op[opcode - i] = '1';
 		
 			ope -= j;
@@ -102,6 +92,11 @@ int			from_operation_to_bynary	(char* op, operation ope) /* change ope to pointe
 int 		test_label					(line* nextLine, labelTable* table)
 {
 	int 	i 				= 0;
+	
+	if (table == NULL)
+	{
+		return 0;
+	}
 	
 	while (i < (sizeof(table) - 1)) /*TODO check whatsapp from Aviv*/
 	{
@@ -127,33 +122,33 @@ int			to_decimal					(int power)
 {
 	int			i, j;
 	
-	for ( j = 2, i = 1 ; i >= power ; i++)
+	for ( j = 2, i = 1 ; i < power ; i++)
 	{
-		j	*= 2;
+		j*= 2;
 	}
 	
 	return j;
 }
 
-int			from_operand_to_bynary		(char* opr, hash oprtype)
+int			from_operand_to_bynary		(char opr[], hash oprtype)
 {
 	int			i, j;
-	
+		
 	i							= operand;
-	j							= operand; /* TODO define ? */
+	j							= operand;
 	
 	while ( i != 0)
 	{
-		if (oprtype > j)
+		if (oprtype >= j)
 		{
-			opr[opcode - i] = '1';
+			opr[operand - i] = '1';
 		
 			oprtype -= j;
 		}
 	
 		else
 		{
-			opr[opcode - i] = '0';
+			opr[operand - i] = '0';
 		}
 		
 		i--;

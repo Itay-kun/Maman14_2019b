@@ -16,10 +16,9 @@ int			from_line_to_bmc			(line*, int, labelTable*);
 short int  	from_normal_line			(line*, labelTable*);
 short int	create_operation_bmc		(line*);
 int 		test_label					(line*, labelTable*);
-int			from_operation_to_bynary	(char*, operation);
+int			from_operation_to_bynary	(char [], operation);
 int			to_decimal					(int);
-int			from_operand_to_bynary		(char*, hash);
-
+int			from_operand_to_bynary		(char [], hash);
 
 
 
