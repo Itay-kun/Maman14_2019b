@@ -8,11 +8,11 @@ int 		main		(int argc, char* argv[])
 	labelTable*		table					= NULL;
 	
 	strcpy (newLine.label, "Main");
-	strcpy (newLine.srcoperand, "r3");
-	strcpy (newLine.desoperand, "LIST[sz]");
+	strcpy (newLine.srcoperand, "r1");
+	strcpy (newLine.desoperand, "r4");
 	newLine.ope							= mov;
 	newLine.srctype						= storageAddress;
-	newLine.destype						= indexAddress;
+	newLine.destype						= storageAddress;
 	
 	from_line_to_bmc(&newLine, 100, table);
 	
